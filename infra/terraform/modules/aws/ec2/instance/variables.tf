@@ -16,3 +16,20 @@ variable "subnet" {
   description = "EC2 VPC Subnet"
   type        = "string"
 }
+
+variable "system_default_user" {
+  description = "EC2 instance default user"
+  type        = "string"
+  default     = "ubuntu"
+}
+
+variable "system_user" {
+  description = "EC2 instance user"
+  type        = "string"
+  default     = "rael"
+}
+variable "github_user" {
+  description = "GitHub user, to retrieve the public ssh keys"
+  type        = "string"
+  default     = "raelga"
+}
