@@ -14,4 +14,6 @@ module "ec2" {
   name = "sandbox"
   vpc = "${data.terraform_remote_state.aws_network.outputs.vpc_id}"
   subnet = "${data.terraform_remote_state.aws_network.outputs.subnet_az1_id}"
+  system_user = "rael"
+  github_user = "raelga"
 }
