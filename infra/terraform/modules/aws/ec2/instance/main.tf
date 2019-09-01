@@ -19,30 +19,30 @@ resource "aws_security_group" "instance-sg" {
   vpc_id = "${var.vpc}"
 
   ingress {
-    protocol  = "TCP"
-    from_port = 22
-    to_port   = 22
+    protocol    = "TCP"
+    from_port   = 22
+    to_port     = 22
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    protocol  = "TCP"
-    from_port = 80
-    to_port   = 80
+    protocol    = "TCP"
+    from_port   = 80
+    to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    protocol  = "TCP"
-    from_port = 443
-    to_port   = 443
+    protocol    = "TCP"
+    from_port   = 443
+    to_port     = 443
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    protocol  = "TCP"
-    from_port = 8080
-    to_port   = 8080
+    protocol    = "TCP"
+    from_port   = 8080
+    to_port     = 8080
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -60,10 +60,10 @@ resource "aws_security_group" "instance-sg" {
 }
 
 resource "aws_spot_instance_request" "instance" {
-  ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "${var.instance_type}"
-  subnet_id     = "${var.subnet}"
-  vpc_security_group_ids = [ "${aws_security_group.instance-sg.id}" ]
+  ami                    = "${data.aws_ami.ubuntu.id}"
+  instance_type          = "${var.instance_type}"
+  subnet_id              = "${var.subnet}"
+  vpc_security_group_ids = ["${aws_security_group.instance-sg.id}"]
 
   spot_price                      = "${var.spot_price}"
   wait_for_fulfillment            = true
@@ -89,4 +89,4 @@ EOF
     Name    = "${var.name}"
     account = "talks"
   }
-} 
+}
