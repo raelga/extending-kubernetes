@@ -10,7 +10,7 @@ data "terraform_remote_state" "aws_network" {
 }
 
 module "ec2" {
-  source = "../../modules/aws/ec2/instance"
+  source = "../../modules/aws/ec2/spot-instance"
   name = "sandbox"
   vpc = "${data.terraform_remote_state.aws_network.outputs.vpc_id}"
   subnet = "${data.terraform_remote_state.aws_network.outputs.subnet_az1_id}"
