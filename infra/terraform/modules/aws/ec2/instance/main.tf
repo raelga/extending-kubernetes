@@ -18,32 +18,15 @@ data "aws_ami" "ubuntu" {
 resource "aws_security_group" "instance-sg" {
   vpc_id = "${var.vpc}"
 
-  ingress {
-    protocol  = "TCP"
-    from_port = 22
-    to_port   = 22
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  dynamic "ingress" {
+    for_each = var.tcp_allowed_ingress
 
-  ingress {
-    protocol  = "TCP"
-    from_port = 80
-    to_port   = 80
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    protocol  = "TCP"
-    from_port = 443
-    to_port   = 443
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    protocol  = "TCP"
-    from_port = 8080
-    to_port   = 8080
-    cidr_blocks = ["0.0.0.0/0"]
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "TCP"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 
   egress {

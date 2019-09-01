@@ -17,6 +17,12 @@ variable "subnet" {
   type        = "string"
 }
 
+variable "tcp_allowed_ingress" {
+  description = "EC2 SG TCP ingress open ports"
+  type        = "list"
+  default     = [22]
+}
+
 variable "instance_type" {
   description = "EC2 Instance type"
   type        = "string"
