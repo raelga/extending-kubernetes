@@ -17,6 +17,12 @@ variable "subnet" {
   type        = "string"
 }
 
+variable "instance_type" {
+  description = "EC2 Instance type"
+  type        = "string"
+  default     = "t3a.large"
+}
+
 variable "system_default_user" {
   description = "EC2 instance default user"
   type        = "string"

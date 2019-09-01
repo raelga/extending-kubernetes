@@ -61,7 +61,7 @@ resource "aws_security_group" "instance-sg" {
 
 resource "aws_instance" "instance" {
   ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "t3a.large"
+  instance_type = "${var.instance_type}"
   subnet_id     = "${var.subnet}"
   vpc_security_group_ids = [ "${aws_security_group.instance-sg.id}" ]
 
