@@ -85,6 +85,8 @@ sudo apt-get install -y docker-ce git golang-go
 sudo usermod -aG docker ${var.system_user}
 EOF
 
+  # Tagging still doesn't work for spot instances
+  # https://github.com/terraform-providers/terraform-provider-aws/issues/32
   tags = {
     Name    = "${var.name}"
     account = "talks"
