@@ -59,11 +59,15 @@ resource "aws_security_group" "instance-sg" {
   }
 }
 
-resource "aws_instance" "instance" {
+resource "aws_spot_instance_request" "instance" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "${var.instance_type}"
   subnet_id     = "${var.subnet}"
   vpc_security_group_ids = [ "${aws_security_group.instance-sg.id}" ]
+
+  spot_price                      = "${var.spot_price}"
+  wait_for_fulfillment            = true
+  instance_interruption_behaviour = "stop"
 
   user_data = <<EOF
 #!/bin/bash

@@ -23,6 +23,12 @@ variable "instance_type" {
   default     = "t3a.large"
 }
 
+variable "spot_price" {
+  description = "EC2 Instance type"
+  type        = "string"
+  default     = null
+}
+
 variable "system_default_user" {
   description = "EC2 instance default user"
   type        = "string"
