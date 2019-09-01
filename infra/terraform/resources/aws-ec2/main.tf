@@ -10,13 +10,13 @@ data "terraform_remote_state" "aws_network" {
 }
 
 module "ec2" {
-  source = "../../modules/aws/ec2/spot-instance"
-  name = "sandbox"
-  vpc = "${data.terraform_remote_state.aws_network.outputs.vpc_id}"
-  subnet = "${data.terraform_remote_state.aws_network.outputs.subnet_az1_id}"
-  system_user = "rael"
-  github_user = "raelga"
-  instance_type = "t3a.2xlarge"
-  spot_price = "0.10"
-  tcp_allowed_ingress =  [22, 80, 9090, 9093]
+  source              = "../../modules/aws/ec2/spot-instance"
+  name                = "sandbox"
+  vpc                 = "${data.terraform_remote_state.aws_network.outputs.vpc_id}"
+  subnet              = "${data.terraform_remote_state.aws_network.outputs.subnet_az1_id}"
+  system_user         = "rael"
+  github_user         = "raelga"
+  instance_type       = "t3a.2xlarge"
+  spot_price          = "0.10"
+  tcp_allowed_ingress = [22, 80, 3000, 8000, 9090, 9093]
 }
