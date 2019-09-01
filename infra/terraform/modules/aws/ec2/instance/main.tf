@@ -51,6 +51,14 @@ resource "aws_instance" "instance" {
 usermod -l ${var.system_user} -d /home/${var.system_user} -m ${var.system_default_user} && groupmod -n ${var.system_user} ${var.system_default_user};
 echo "${var.system_user} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-cloud-init-users
 curl -sq https://github.com/${var.github_user}.keys | tee -a /home/${var.system_user}/.ssh/authorized_keys
+# Package installation
+sudo apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo add-apt-repository -y ppa:longsleep/golang-backports
+sudo apt-get install -y docker-ce git golang-go
+sudo usermod -aG docker ${var.system_user}
 EOF
 
   tags = {
