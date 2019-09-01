@@ -26,7 +26,7 @@ variable "instance_type" {
 variable "spot_price" {
   description = "EC2 Instance type"
   type        = "string"
-  default     = null
+  default     = "0.10"
 }
 
 variable "system_default_user" {
