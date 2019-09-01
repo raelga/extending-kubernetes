@@ -16,4 +16,6 @@ module "ec2" {
   subnet = "${data.terraform_remote_state.aws_network.outputs.subnet_az1_id}"
   system_user = "rael"
   github_user = "raelga"
+  instance_type = "t3a.2xlarge"
+  spot_price = "0.10"
 }
