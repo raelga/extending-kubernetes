@@ -56,12 +56,17 @@ echo "${var.system_user} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-cloud-init-
 curl -sq https://github.com/${var.github_user}.keys | tee -a /home/${var.system_user}/.ssh/authorized_keys
 # Package installation
 sudo apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+## Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo add-apt-repository -y ppa:longsleep/golang-backports
-sudo apt-get install -y docker-ce git golang-go
+sudo apt-get install -y docker-ce=5:18.09.9~3-0~ubuntu-bionic git golang-go
 sudo usermod -aG docker ${var.system_user}
+## Kubernetes
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" >/etc/apt/sources.list.d/kubernetes.list
+apt-get -y update
 EOF
 
   tags = {
