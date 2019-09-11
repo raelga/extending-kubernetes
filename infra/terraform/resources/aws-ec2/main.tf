@@ -18,5 +18,5 @@ module "ec2" {
   github_user         = "raelga"
   instance_type       = "t3a.2xlarge"
   spot_price          = "0.10"
-  tcp_allowed_ingress = [22, 80, 3000, 8000, 8080, 9090, 9093]
+  tcp_allowed_ingress = [ 22, 80, 443 ]
 }
