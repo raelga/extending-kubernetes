@@ -1,13 +1,5 @@
 provider "google" {
-  project     = "k8s-talks"
+  project     = "fluid-acrobat-252814"
   region      = "europe-west4"
-}
-
-terraform {
-  backend "s3" {
-    region         = "eu-west-1"
-    key            = "gcp-gke"
-    bucket         = "tf-state-talks"
-    dynamodb_table = "tf-state-talks-locks"
-  }
+  credentials = "${file("fluid-acrobat-252814-7af15b373a26.json")}"
 }
