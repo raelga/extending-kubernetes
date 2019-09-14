@@ -1,0 +1,31 @@
+apiVersion: kibana.k8s.elastic.co/v1alpha1
+kind: Kibana
+metadata:
+  name: kibana
+spec:
+  version: 7.2.0
+  nodeCount: 1
+  elasticsearchRef:
+    name: elasticsearch
+  podTemplate:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kibana
+    spec:
+      containers:
+        - name: kibana
+          resources:
+            limits:
+              memory: 1Gi
+              cpu: 1
+  http:
+    service:
+      spec:
+        type: LoadBalancer
+        ports:
+          - protocol: TCP
+            port: 443
+            targetPort: 5601
+    tls:
+      certificate:
+        secretName: kibana-cert
