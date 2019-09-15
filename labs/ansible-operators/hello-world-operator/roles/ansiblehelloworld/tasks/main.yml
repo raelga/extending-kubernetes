@@ -1,2 +1,10 @@
 ---
 # tasks file for ansiblehelloworld
+
+- name: Manage hello-world Deployment for CR {{ meta.name }} on namespace {{ meta.namespace }}
+  k8s:
+    definition: "{{ lookup('template', 'deployment.yml.j2') }}"
+
+- name: Manage hello-world Service for CR {{ meta.name }} on namespace {{ meta.namespace }}
+  k8s:
+    definition: "{{ lookup('template', 'service.yml.j2') }}"

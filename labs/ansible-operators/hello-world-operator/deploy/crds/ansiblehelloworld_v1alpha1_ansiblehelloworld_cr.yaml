@@ -1,7 +1,11 @@
 apiVersion: ansible-hello-world.operator.com/v1alpha1
 kind: AnsibleHelloWorld
 metadata:
-  name: example-ansiblehelloworld
+  name: example
 spec:
-  # Add fields here
-  size: 3
+  image: "gcr.io/google-samples/hello-app:1.0"
+  replicas: 1
+  requestsCpu: "50m"
+  requestsMemory: "32Mi"
+  limitsMpu: "100m"
+  limitsMemory: "64Mi"
