@@ -1,0 +1,7 @@
+apiVersion: ansible-hello-world.operator.com/v1alpha1
+kind: AnsibleHelloWorld
+metadata:
+  name: example-ansiblehelloworld
+spec:
+  # Add fields here
+  size: 3
