@@ -3,7 +3,7 @@
 #### Install the Operator Livecycle Manager
 
 ```bash
-$ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/install.sh | bash -s 0.10.0
+$ kubectl apply -f labs/01-elasticsearch-operator/olm.yaml
 ```
 
 #### Install the ElasticSearch operator

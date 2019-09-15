@@ -26,6 +26,6 @@ spec:
           - protocol: TCP
             port: 443
             targetPort: 5601
-    tls:
-      certificate:
-        secretName: kibana-cert
+    # tls:
+    #   certificate:
+    #     secretName: kibana-cert
