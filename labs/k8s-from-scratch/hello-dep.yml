@@ -25,11 +25,11 @@ spec:
           mountPath: "/usr/share/nginx/html"
         resources:
           requests:
-            cpu: 50m
-            memory: 32Mi
+            cpu: 100m
+            memory: 128Mi
           limits:
-            cpu: 150m
-            memory: 32Mi
+            cpu: 250m
+            memory: 256Mi
       - name: echo
         image: alpine
         command:
@@ -46,10 +46,10 @@ spec:
           mountPath: "/tmp/html"
         resources:
           requests:
-            cpu: 25m
-            memory: 32Mi
-          limits:
             cpu: 50m
             memory: 32Mi
+          limits:
+            cpu: 75m
+            memory: 96Mi
       volumes:
       - name: html
