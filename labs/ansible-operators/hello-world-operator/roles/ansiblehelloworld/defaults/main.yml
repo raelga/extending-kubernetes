@@ -1,0 +1,9 @@
+---
+# defaults file for ansiblehelloworld
+
+image: "gcr.io/google-samples/hello-app:1.0"
+replicas: 1
+requests_cpu: "50m"
+requests_memory: "32Mi"
+limits_cpu: "100m"
+limits_memory: "64Mi"

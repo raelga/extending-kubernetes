@@ -1,0 +1,6 @@
+---
+- version: v1alpha1
+  group: ansible-hello-world.operator.com
+  kind: AnsibleHelloWorld
+  role: /opt/ansible/roles/ansiblehelloworld
+  reconcilePeriod: 60s
