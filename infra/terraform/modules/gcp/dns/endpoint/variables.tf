@@ -8,8 +8,24 @@ variable "managed_zone" {
   type        = "string"
 }
 
-variable "managed_zone_name" {
-  description = "Name of the zone"
+variable "cluster_name" {
+  description = "The GKE cluster name"
+  type = "string"
+}
+
+variable "cluster_location" {
+  description = "GKE cluster location"
+  type        = "string"
+  default     = "europe-west4"
+}
+
+variable "svc_name" {
+  description = "Name of the Kubernetes service"
   type        = "string"
 }
 
+variable "svc_namespace" {
+  description = "Namespace of the Kubernetes service"
+  type        = "string"
+  default     = "default"
+}
