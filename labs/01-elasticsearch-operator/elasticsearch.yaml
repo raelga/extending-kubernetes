@@ -1,0 +1,36 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1alpha1
+kind: Elasticsearch
+metadata:
+  name: elasticsearch
+spec:
+  version: 7.2.0
+  nodes:
+    - nodeCount: 1
+      config:
+        node.master: true
+        node.data: true
+        node.ingest: true
+      podTemplate:
+        metadata:
+          labels:
+            app.kubernetes.io/name: elasticsearch
+        spec:
+          containers:
+            - name: elasticsearch
+              resources:
+                limits:
+                  memory: 2Gi
+                  cpu: 1
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data # note: elasticsearch-data must be the name of the Elasticsearch volume
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 20Gi
+  http:
+    service:
+      spec:
+        type: LoadBalancer

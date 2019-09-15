@@ -11,6 +11,7 @@ resource "google_container_cluster" "gke" {
   # node pool and immediately delete it.
   remove_default_node_pool = true
   initial_node_count = 1
+  logging_service = "none"
 }
 
 resource "google_container_node_pool" "gke_default_pool" {

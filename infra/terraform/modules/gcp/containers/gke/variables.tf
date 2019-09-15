@@ -1,5 +1,5 @@
 variable "location" {
-  description = "Google Cloud region"
+  description = "Google Cloud location"
   type        = "string"
   default     = "europe-west4"
 }
