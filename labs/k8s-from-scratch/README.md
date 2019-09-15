@@ -1794,12 +1794,27 @@ KUBE-SEP-TU6S3TYJDJNFJ67V  all  --  anywhere             anywhere   `
 
 - Command
 
-``
+```
 tf destroy --auto-approve
 ```
 
 - Expected output
 
 ```
+Acquiring state lock. This may take a few moments...
+data.terraform_remote_state.aws_network: Refreshing state...
+module.ec2.data.aws_ami.ubuntu: Refreshing state...
+module.ec2.aws_security_group.instance-sg: Refreshing state... [id=sg-00e57f209d72da0e1]
+module.ec2.aws_spot_instance_request.instance: Refreshing state... [id=sir-25jg459p]
+module.ec2.aws_spot_instance_request.instance: Destroying... [id=sir-25jg459p]
+module.ec2.aws_spot_instance_request.instance: Still destroying... [id=sir-25jg459p, 10s elapsed]
+module.ec2.aws_spot_instance_request.instance: Still destroying... [id=sir-25jg459p, 20s elapsed]
+module.ec2.aws_spot_instance_request.instance: Still destroying... [id=sir-25jg459p, 30s elapsed]
+module.ec2.aws_spot_instance_request.instance: Destruction complete after 30s
+module.ec2.aws_security_group.instance-sg: Destroying... [id=sg-00e57f209d72da0e1]
+module.ec2.aws_security_group.instance-sg: Still destroying... [id=sg-00e57f209d72da0e1, 10s elapsed]
+module.ec2.aws_security_group.instance-sg: Destruction complete after 11s
 
+Destroy complete! Resources: 2 destroyed.
+Releasing state lock. This may take a few moments...
 ```
