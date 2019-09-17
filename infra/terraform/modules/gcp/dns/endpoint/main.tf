@@ -6,7 +6,6 @@ data "google_container_cluster" "gke" {
 data "google_client_config" "current" {}
 
 provider "kubernetes" {
-  # version          = "~> 1.3"
   load_config_file       = false
   host                   = "https://${data.google_container_cluster.gke.endpoint}"
   token                  = "${data.google_client_config.current.access_token}"
