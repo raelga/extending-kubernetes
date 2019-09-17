@@ -3,7 +3,7 @@ kind: AnsibleHelloWorld
 metadata:
   name: example
 spec:
-  image: "gcr.io/google-samples/hello-app:1.0"
+  image: "raelga/cats:neu"
   replicas: 1
   requestsCpu: "50m"
   requestsMemory: "32Mi"

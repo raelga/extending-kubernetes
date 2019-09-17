@@ -34,24 +34,24 @@ spec:
 
 ```bash
 $ make
-docker-build                   Build operator Docker image
-docker-push                    Push operator Docker image to remote registry
-docker-update                  Build and Push operator Docker image to remote registry
-create-namespace               Create Namespace for the operator
-delete-namespace               Delete Namespace for the operator
-create-crd                     Create Operator CRD
-delete-crd                     Delete Operator CRD
-create-operator                Create/Update Operator objects (remember to set correct image on deploy/operator.yaml)
-delete-operator                Delete Operator objects
-create-cr                      Create/Update CR example
-delete-cr                      Delete CR example
-view-ansible-logs              View logs from ansible container inside operator deployment
-view-operator-logs             View logs from operator container inside operator deployment
-describe-cr-deployment         Describe created deployment for example CR
-describe-cr-service            Describe created service for example CR
-all                            Create all: Namespace, CRD, Operator, CR
-clean                          Clean all resources: CR, Operator, CRD, Namespace
-help                           Print this help
+docker-build                   OPERATOR IMAGE - Build operator Docker image
+docker-push                    OPERATOR IMAGE - Push operator Docker image to remote registry
+docker-update                  OPERATOR IMAGE - Build and Push operator Docker image to remote registry
+create-crd                     CustomResourceDefinition - Create Operator CRD
+delete-crd                     CustomResourceDefinition - Delete Operator CRD
+create-operator                OPERATOR - Create/Update Operator objects (remember to set correct image on deploy/operator.yaml)
+delete-operator                OPERATOR - Delete Operator objects
+view-operator-main-logs        OPERATOR - View logs from operator container inside operator deployment
+view-operator-ansible-logs     OPERATOR - View logs from ansible container inside operator deployment
+create-cr                      CustomResource - Create/Update CR example
+delete-cr                      CustomResource - Delete CR example
+get-cr                         CustomResource - Get current CRs
+describe-cr                    CustomResource - Describe CR example
+describe-cr-deployment         CustomResource - Describe created deployment for example CR
+describe-cr-service            CustomResource - Describe created service for example CR
+all                            MAIN - Create all: CRD, Operator, CR
+clean                          MAIN - Clean all resources: CR, Operator, CRD
+help                           MAIN - Print this help
 ```
 
 ## Operator image creation
@@ -67,17 +67,13 @@ $ make docker-update
 
 * Make sure you have installed `kubectl` client on your machine, and you are authenticated within a k8s cluster:
 
-```bash
-$ kubectl login -u admin https://master.k8s.com:8443
-```
-
-* Execute `all` target that will create all needed objects (you can overwrite target namespace with `NAMESPACE` var):
+* Execute `all` target that will create all needed objects:
 
 ```bash
 $ make all
 ```
 
-* Once tested, execute `clean` target that will delete all created objects (you can overwrite target namespace with `NAMESPACE` var):
+* Once tested, execute `clean` target that will delete all created objects:
 
 ```bash
 $ make clean

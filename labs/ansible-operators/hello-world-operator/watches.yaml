@@ -3,4 +3,4 @@
   group: ansible-hello-world.operator.com
   kind: AnsibleHelloWorld
   role: /opt/ansible/roles/ansiblehelloworld
-  reconcilePeriod: 60s
+  reconcilePeriod: 120s

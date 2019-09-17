@@ -18,12 +18,12 @@ spec:
           image: "{{ image }}"
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 8080
+          - containerPort: 80
             protocol: TCP
           readinessProbe:
             httpGet:
               path: /
-              port: 8080
+              port: 80
               scheme: HTTP
             initialDelaySeconds: 20
             periodSeconds: 20
@@ -33,7 +33,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 8080
+              port: 80
               scheme: HTTP
             initialDelaySeconds: 20
             periodSeconds: 10
