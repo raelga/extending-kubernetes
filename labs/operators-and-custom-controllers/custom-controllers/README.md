@@ -21,13 +21,13 @@ kubectl -n cert-manager create secret generic clouddns-dns01-solver-svc-acct \
   --from-file=/tmp/key.json
 ```
 
-You can now deploy the issuers
+#### Create the certificate issuer with dns-01 challenge
 
 ```bash
 kubectl apply -f custom-controllers/le-issuer.yaml
 ```
 
-Deploy a certificate for kibana:
+#### Deploy a certificate for kibana
 
 ```bash
 kubectl apply -f custom-controllers/kibana-certificate.yaml

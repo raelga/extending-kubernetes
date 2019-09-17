@@ -104,6 +104,7 @@ Uncomment the commented lines in the main.tf file and issue the following comman
 ```bash
 terraform init
 terraform apply -auto-approve
+```
 
 #### Install a fluent-bit daemon set to send cluster logs to our elasticsearch cluster
 
