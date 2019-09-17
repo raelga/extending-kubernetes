@@ -21,9 +21,9 @@ data "kubernetes_service" "svc" {
 }
 
 resource "google_dns_record_set" "endpoint" {
-  name         = "${var.name}.${var.managed_zone}."
+  name         = "${var.name}.${var.dns_zone}."
   type         = "A"
   ttl          = 300
-  managed_zone = "${replace(var.managed_zone, ".", "-")}"
+  managed_zone = "${replace(var.dns_zone, ".", "-")}-zone"
   rrdatas      = ["${data.kubernetes_service.svc.load_balancer_ingress.0.ip}"]
 }

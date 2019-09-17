@@ -3,7 +3,7 @@ variable "name" {
   type        = "string"
 }
 
-variable "managed_zone" {
+variable "dns_zone" {
   description = "The DNS of this managed zone"
   type        = "string"
 }
