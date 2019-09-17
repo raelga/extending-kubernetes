@@ -1,7 +1,7 @@
 ---
 # defaults file for ansiblehelloworld
 
-image: "gcr.io/google-samples/hello-app:1.0"
+image: "raelga/cats:lia"
 replicas: 1
 requests_cpu: "50m"
 requests_memory: "32Mi"

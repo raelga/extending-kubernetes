@@ -20,7 +20,7 @@ spec:
           - /tmp/ansible-operator/runner
           - stdout
           # Replace this with the built image name
-          image: "slopezz/ansible-k8s-hello-world-operator:v1.0.0"
+          image: "slopezz/ansible-k8s-hello-world-operator:extending-kubernetes"
           imagePullPolicy: "Always"
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner
@@ -28,7 +28,7 @@ spec:
             readOnly: true
         - name: operator
           # Replace this with the built image name
-          image: "slopezz/ansible-k8s-hello-world-operator:v1.0.0"
+          image: "slopezz/ansible-k8s-hello-world-operator:extending-kubernetes"
           imagePullPolicy: "Always"
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner
