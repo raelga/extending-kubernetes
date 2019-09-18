@@ -4,9 +4,9 @@ metadata:
   name: kibana
 spec:
   secretName: kibana-cert
-  commonName: "kibana.gcloud.lominorama.com"
+  commonName: "kibana.talks.cloudnative.barcelona"
   dnsNames:
-    - kibana.gcloud.lominorama.com
+    - kibana.talks.cloudnative.barcelona
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-prod

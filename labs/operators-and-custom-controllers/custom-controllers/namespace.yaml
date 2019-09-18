@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cert-manager
-  labels:
-    # This is required by the cert-manager installation process
-    certmanager.k8s.io/disable-validation: "true"
