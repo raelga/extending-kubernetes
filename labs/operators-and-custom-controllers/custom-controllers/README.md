@@ -6,7 +6,7 @@ kubectl apply -f custom-controllers/cert-manager.yaml
 
 #### Create a service account to configure the dns challenge
 
-```bash
+```bashcom
 gcloud beta iam service-accounts create dns01-solver \
   --display-name dns01-solver
 

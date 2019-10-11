@@ -60,7 +60,8 @@ elasticsearch   green    1       7.2.0     Operational   10m
 To get the password of the ElasticSearch cluster default user:
 
 ```bash
-PASSWORD=$(kubectl get secret elasticsearch-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+PASSWORD=$(kubectl get secret elasticsearch-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)PASSWORD=$(kubectl get secret elasticsearch-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+
 ```
 
 Get the IP of the services where we have exposed ElasticSearch:

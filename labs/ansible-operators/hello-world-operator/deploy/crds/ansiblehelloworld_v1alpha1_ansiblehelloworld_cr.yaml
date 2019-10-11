@@ -3,7 +3,7 @@ kind: AnsibleHelloWorld
 metadata:
   name: example
 spec:
-  image: "raelga/cats:neu"
+  image: "raelga/cats:lia"
   replicas: 1
   requestsCpu: "50m"
   requestsMemory: "32Mi"
